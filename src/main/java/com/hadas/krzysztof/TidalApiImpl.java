@@ -6,7 +6,6 @@ import com.hadas.krzysztof.models.*;
 import com.hadas.krzysztof.playlist.UserPlaylists;
 import com.hadas.krzysztof.search.Search;
 import com.hadas.krzysztof.session.Session;
-import com.mashape.unirest.http.exceptions.UnirestException;
 
 import java.util.List;
 
@@ -16,8 +15,8 @@ public class TidalApiImpl implements TidalApi {
     private UserPlaylists userPlaylists;
     private Items items;
 
-    public void login(String username, String password) {
-        Session currentSession = Session.login(username, password);
+    public void login(String clientId, String clientSecret, String refreshToken) {
+        Session currentSession = Session.login(clientId, clientSecret, refreshToken);
         favorites = new Favorites(currentSession);
         search = new Search(currentSession);
         userPlaylists = new UserPlaylists(currentSession);

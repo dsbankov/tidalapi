@@ -11,11 +11,12 @@ public interface TidalApi {
      * login function should called at the start of the program
      * in order to use this API in context of logged account.
      *
-     * @param username - Tidal account username
-     * @param password - Tidal account password
+     * @param clientId - Tidal account client ID
+     * @param clientSecret - Tidal account client secret
+     * @param refreshToken - Tidal account refresh token
      * @throws com.hadas.krzysztof.exceptions.UncheckedUnirestException
      */
-    void login(String username, String password);
+    void login(String clientId, String clientSecret, String refreshToken);
 
     /**
      * Add new track to playlist

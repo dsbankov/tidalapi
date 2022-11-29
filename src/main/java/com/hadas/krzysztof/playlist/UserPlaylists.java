@@ -65,7 +65,7 @@ public class UserPlaylists {
     }
 
     private String getPlaylistEtag(String playlistId)  {
-        HttpResponse<JsonNode> jsonResponse = restHelper.executeRequest(currentSession.post("playlists/" + playlistId));
+        HttpResponse<JsonNode> jsonResponse = restHelper.executeRequest(currentSession.get("playlists/" + playlistId));
         restHelper.checkResponseStatus(jsonResponse);
         return jsonResponse.getHeaders().get(ETAG).get(0);
     }

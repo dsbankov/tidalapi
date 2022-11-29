@@ -23,7 +23,7 @@ public class ItemsTest {
 
     @Before
     public void setup() throws UnirestException {
-        Session session = Session.login(Credentials.USERNAME, Credentials.PASSWORD);
+        Session session = Session.login(Credentials.CLIENT_ID, Credentials.CLIENT_SECRET, Credentials.REFRESH_TOKEN);
         items = new Items(session);
     }
 
