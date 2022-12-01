@@ -1,9 +1,6 @@
 package com.hadas.krzysztof.items;
 
-import com.hadas.krzysztof.models.Album;
-import com.hadas.krzysztof.models.Artist;
-import com.hadas.krzysztof.models.Playlist;
-import com.hadas.krzysztof.models.Track;
+import com.hadas.krzysztof.models.*;
 import com.hadas.krzysztof.session.Session;
 import com.hadas.krzysztof.utils.RestHelper;
 import com.mashape.unirest.http.HttpResponse;
@@ -37,6 +34,12 @@ public class Items {
 
     public Playlist getPlaylist(String playlistId) {
         return getItem(playlistId, "playlist", Playlist.class);
+    }
+
+    public PlaylistItems getPlaylistItems(String playlistId) {
+        HttpResponse<JsonNode> jsonResponse = restHelper.executeRequest(currentSession.get("playlists/" + playlistId + "/items")
+                .queryString("limit", "999"));
+        return restHelper.checkAndDeserialize(jsonResponse, PlaylistItems.class);
     }
 
     private <T> T getItem(String itemId, String itemType, Class<T> clazz) {

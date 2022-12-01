@@ -131,6 +131,14 @@ public interface TidalApi {
     Playlist getPlaylist(String playlistId);
 
     /**
+     * Get playlist items by playlist id
+     * @param playlistId - playlist id to retrieve
+     * @return playlist items with given id
+     * @throws com.hadas.krzysztof.exceptions.UncheckedUnirestException
+     */
+    PlaylistItems getPlaylistItems(String playlistId);
+
+    /**
      * Get logged account favorites albums
      * @return List of favorites albums
      * @throws com.hadas.krzysztof.exceptions.UncheckedUnirestException

@@ -10,7 +10,7 @@ public class Track {
     private String url;
     private int duration;
     private int popularity;
-    private List<Object> artists;
+    private List<TrackArtist> artists;
     private Long id;
 
     public Long getId() {
@@ -69,11 +69,11 @@ public class Track {
         this.popularity = popularity;
     }
 
-    public List<Object> getArtists() {
+    public List<TrackArtist> getArtists() {
         return artists;
     }
 
-    public void setArtists(List<Object> artists) {
+    public void setArtists(List<TrackArtist> artists) {
         this.artists = artists;
     }
 }

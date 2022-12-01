@@ -1,5 +1,6 @@
 package com.hadas.krzysztof.items;
 
+import com.hadas.krzysztof.models.PlaylistItems;
 import com.hadas.krzysztof.session.Session;
 import com.hadas.krzysztof.testutils.Credentials;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -45,5 +46,17 @@ public class ItemsTest {
     @Test
     public void shouldBeAbleToGetPlaylist() throws UnirestException {
         assertEquals(TEST_PLAYLIST_NAME, items.getPlaylist(TEST_PLAYLIST_ID).getTitle());
+    }
+
+    @Test
+    public void shouldBeAbleToGetPlaylistItems() throws UnirestException {
+        PlaylistItems playlistItems = items.getPlaylistItems(TEST_PLAYLIST_ID);
+        assertEquals((Integer) 48, playlistItems.getTotalNumberOfItems());
+        assertEquals(48, playlistItems.getItems().size());
+        long count = playlistItems.getItems().stream()
+                .filter(trackItem -> trackItem.getItem().getTitle().equalsIgnoreCase("Love On The Brain"))
+                .filter(trackItem -> trackItem.getItem().getArtists().get(0).getName().equalsIgnoreCase("Rihanna"))
+                .count();
+        assertEquals(1, count);
     }
 }

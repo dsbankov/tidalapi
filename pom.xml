@@ -6,7 +6,7 @@
 
     <groupId>com.hadas.krzysztof</groupId>
     <artifactId>tidal-api</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <name>TidalApi</name>
     <description>Unofficial Tidal API music streaming service</description>
 

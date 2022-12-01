@@ -79,6 +79,10 @@ public class TidalApiImpl implements TidalApi {
         return items.getPlaylist(playlistId);
     }
 
+    public PlaylistItems getPlaylistItems(String playlistId) {
+        return items.getPlaylistItems(playlistId);
+    }
+
     public List<Album> getFavoriteAlbums() {
         return favorites.getFavoriteAlbums();
     }
