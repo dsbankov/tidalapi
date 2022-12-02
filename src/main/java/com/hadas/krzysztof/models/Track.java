@@ -12,6 +12,7 @@ public class Track {
     private int popularity;
     private List<TrackArtist> artists;
     private Long id;
+    private Integer index;
 
     public Long getId() {
         return id;
@@ -75,5 +76,13 @@ public class Track {
 
     public void setArtists(List<TrackArtist> artists) {
         this.artists = artists;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 }

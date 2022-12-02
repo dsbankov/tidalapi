@@ -3,6 +3,7 @@ package com.hadas.krzysztof.playlist;
 import com.hadas.krzysztof.session.Session;
 import com.hadas.krzysztof.testutils.Credentials;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.sun.tools.javac.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,7 +48,7 @@ public class UserPlaylistsTest {
         assertEquals(java.util.Optional.of(1L), userPlaylists.getUserPlaylists().stream()
                 .filter(p -> p.getTitle().equals(TEST_PLAYLIST_TITLE))
                 .findFirst().map(com.hadas.krzysztof.models.Playlist::getNumberOfTracks));
-        userPlaylists.deleteTrackFromPlaylist(playlist.getUuid(), 0);
+        userPlaylists.deleteTrackFromPlaylist(playlist.getUuid(), List.of(0));
         assertEquals(java.util.Optional.of(0L), userPlaylists.getUserPlaylists().stream()
                 .filter(p -> p.getTitle().equals(TEST_PLAYLIST_TITLE))
                 .findFirst().map(com.hadas.krzysztof.models.Playlist::getNumberOfTracks));

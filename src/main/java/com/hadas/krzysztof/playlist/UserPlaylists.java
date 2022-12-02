@@ -9,6 +9,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.owlike.genson.GenericType;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserPlaylists {
 
@@ -56,10 +57,13 @@ public class UserPlaylists {
         restHelper.checkResponseStatus(jsonResponse);
     }
 
-    public void deleteTrackFromPlaylist(String playlistId, int index) {
+    public void deleteTrackFromPlaylist(String playlistId, List<Integer> indecies) {
         String etag = getPlaylistEtag(playlistId);
+        String indeciesCsvString = indecies.stream()
+                .map(index -> index.toString())
+                .collect(Collectors.joining(","));
         HttpResponse<JsonNode> jsonResponse =
-                restHelper.executeRequest(currentSession.delete("playlists/" + playlistId + "/items/" + index)
+                restHelper.executeRequest(currentSession.delete("playlists/" + playlistId + "/items/" + indeciesCsvString)
                 .header("If-None-Match", etag));
         restHelper.checkResponseStatus(jsonResponse);
     }

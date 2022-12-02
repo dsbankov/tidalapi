@@ -55,7 +55,7 @@ public interface TidalApi {
      * @param index - index of track to delete
      * @throws com.hadas.krzysztof.exceptions.UncheckedUnirestException
      */
-    void deleteTrackFromPlaylist(String playlistId, int index);
+    void deleteTrackFromPlaylist(String playlistId, List<Integer> indecies);
 
     /**
      * Search for track

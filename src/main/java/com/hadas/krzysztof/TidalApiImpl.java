@@ -39,8 +39,8 @@ public class TidalApiImpl implements TidalApi {
         userPlaylists.deletePlaylist(playlistId);
     }
 
-    public void deleteTrackFromPlaylist(String playlistId, int index) {
-        userPlaylists.deleteTrackFromPlaylist(playlistId, index);
+    public void deleteTrackFromPlaylist(String playlistId, List<Integer> indecies) {
+        userPlaylists.deleteTrackFromPlaylist(playlistId, indecies);
     }
 
     public List<Track> searchTrack(String query) {
